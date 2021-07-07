@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleCalculatorHW
 {
@@ -25,6 +21,21 @@ namespace SimpleCalculatorHW
                     Console.WriteLine("Введите число");
                     secondInputValue = double.Parse(Console.ReadLine());
                     result = firstInputValue + secondInputValue;
+                    Console.WriteLine("Результат равен " + result);
+                    break;
+                case ConsoleKey.Subtract:
+                case ConsoleKey.OemMinus:
+                    Console.WriteLine("Введите число");
+                    secondInputValue = double.Parse(Console.ReadLine());
+                    result = firstInputValue - secondInputValue;
+                    Console.WriteLine("Результат равен " + result);
+                    break;
+                case ConsoleKey.Divide:
+                case ConsoleKey.Oem2:
+                case ConsoleKey.Oem5:
+                    Console.WriteLine("Введите число");
+                    secondInputValue = double.Parse(Console.ReadLine());
+                    result = firstInputValue / secondInputValue;
                     Console.WriteLine("Результат равен " + result);
                     break;
                 default:
