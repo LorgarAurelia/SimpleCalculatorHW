@@ -38,8 +38,15 @@ namespace SimpleCalculatorHW
                     result = firstInputValue / secondInputValue;
                     Console.WriteLine("Результат равен " + result);
                     break;
+                case ConsoleKey.Multiply:
+                case ConsoleKey.D8:
+                    Console.WriteLine("Введите число");
+                    secondInputValue = double.Parse(Console.ReadLine());
+                    result = firstInputValue * secondInputValue;
+                    Console.WriteLine("Результат равен " + result);
+                    break;
                 default:
-                    Console.WriteLine("Введён некоректный оператор " + inputkey);
+                    Console.WriteLine("Введён некоректный оператор " + inputkey + ". Если вы ввели коректный оператор и данное окно всё еще появляется обратитесь к разработчику по электронному адресу: luterfaeron@gmail.com");
                     break;
             }
         }
