@@ -8,47 +8,70 @@ namespace SimpleCalculatorHW
         {
             double firstInputValue,secondInputValue,result;
 
-            Console.WriteLine("Введите число");
-            firstInputValue = double.Parse(Console.ReadLine());
+            string conditionOfExit;
+            conditionOfExit = "empty";
 
-            Console.WriteLine("Выберите необходимы оператор: +,-,/,*");
-            ConsoleKey inputkey = Console.ReadKey().Key;
-
-            switch (inputkey)
+            while (conditionOfExit != "exit")
             {
-                case ConsoleKey.Add:
-                case ConsoleKey.OemPlus:
-                    Console.WriteLine("Введите число");
+                Console.WriteLine("Введите число");
+                try
+                {
+                    firstInputValue = double.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Вы ввели некоректный операнд, допустимы только числа.\nЕсли вы хотите закончить работу каклькулятора то введите команду 'exit', в противном случае оставьте поле пустым.");
+                    conditionOfExit = Console.ReadLine();
+                    continue;
+                }
+
+                Console.WriteLine("Выберите необходимый оператор: +,-,/,*");
+                ConsoleKey inputkey = Console.ReadKey().Key;
+
+                Console.WriteLine("\nВведите число");
+                try
+                {
                     secondInputValue = double.Parse(Console.ReadLine());
-                    result = firstInputValue + secondInputValue;
-                    Console.WriteLine("Результат равен " + result);
-                    break;
-                case ConsoleKey.Subtract:
-                case ConsoleKey.OemMinus:
-                    Console.WriteLine("Введите число");
-                    secondInputValue = double.Parse(Console.ReadLine());
-                    result = firstInputValue - secondInputValue;
-                    Console.WriteLine("Результат равен " + result);
-                    break;
-                case ConsoleKey.Divide:
-                case ConsoleKey.Oem2:
-                case ConsoleKey.Oem5:
-                    Console.WriteLine("Введите число");
-                    secondInputValue = double.Parse(Console.ReadLine());
-                    result = firstInputValue / secondInputValue;
-                    Console.WriteLine("Результат равен " + result);
-                    break;
-                case ConsoleKey.Multiply:
-                case ConsoleKey.D8:
-                    Console.WriteLine("Введите число");
-                    secondInputValue = double.Parse(Console.ReadLine());
-                    result = firstInputValue * secondInputValue;
-                    Console.WriteLine("Результат равен " + result);
-                    break;
-                default:
-                    Console.WriteLine("Введён некоректный оператор " + inputkey + ". Если вы ввели коректный оператор и данное окно всё еще появляется обратитесь к разработчику по электронному адресу: luterfaeron@gmail.com");
-                    break;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Вы ввели некоректный операнд, допустимы только числа.\nЕсли вы хотите закончить работу каклькулятора то введите команду 'exit', в противном случае оставьте поле пустым.");
+                    conditionOfExit = Console.ReadLine();
+                    continue;
+                }
+
+                switch (inputkey)
+                {
+                    case ConsoleKey.Add:
+                    case ConsoleKey.OemPlus:
+                        result = firstInputValue + secondInputValue;
+                        Console.WriteLine("Результат равен " + result);
+                        break;
+                    case ConsoleKey.Subtract:
+                    case ConsoleKey.OemMinus:
+                        result = firstInputValue - secondInputValue;
+                        Console.WriteLine("Результат равен " + result);
+                        break;
+                    case ConsoleKey.Divide:
+                    case ConsoleKey.Oem2:
+                    case ConsoleKey.Oem5:
+                        result = firstInputValue / secondInputValue;
+                        Console.WriteLine("Результат равен " + result);
+                        break;
+                    case ConsoleKey.Multiply:
+                    case ConsoleKey.D8:
+                        result = firstInputValue * secondInputValue;
+                        Console.WriteLine("Результат равен " + result);
+                        break;
+                    default:
+                        Console.WriteLine("Введён некоректный оператор " + inputkey + ". Если вы ввели коректный оператор и данное окно всё еще появляется обратитесь к разработчику по электронному адресу: luterfaeron@gmail.com");
+                        break;
+                }
+
+                Console.WriteLine("Если вы хотите закончить работу каклькулятора то введите команду 'exit', в противном случае оставьте поле пустым.");
+                conditionOfExit = Console.ReadLine();
             }
+            
         }
     }
 }
