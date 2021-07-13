@@ -6,10 +6,8 @@ namespace SimpleCalculatorHW
     {
         static void Main(string[] args)
         {
-            double firstInputValue,secondInputValue,result;
-
-            string conditionOfExit;
-            conditionOfExit = "empty";
+            double firstInputValue, secondInputValue, result;
+            var conditionOfExit = "empty";
 
             while (conditionOfExit != "exit")
             {
@@ -71,7 +69,7 @@ namespace SimpleCalculatorHW
                 Console.WriteLine("Если вы хотите закончить работу каклькулятора то введите команду 'exit', в противном случае оставьте поле пустым.");
                 conditionOfExit = Console.ReadLine();
             }
-            
+
         }
     }
 }
